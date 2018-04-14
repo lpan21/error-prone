@@ -64,4 +64,15 @@ public class NeedlemanWunschEditDistanceTest {
 
     assertThat(needlemanWunsch).isEqualTo(levenschtein);
   }
+
+  @Test
+  public void needlemanWunschNormalizedEditDistance_returnsZero_withEmptyStrings() {
+    String identifier = "";
+
+    double distance =
+        NeedlemanWunschEditDistance.getNormalizedEditDistance(
+            identifier, identifier, /* caseSensitive= */ false, 1, 1, 10);
+
+    assertThat(distance).isEqualTo(0.0);
+  }
 }
